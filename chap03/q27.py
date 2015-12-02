@@ -16,8 +16,8 @@ for datum in data:
         tmpkey = re.sub(" =.+", "", tmpkey)
         tmpvalue = re.sub(".+=", "", datum)
         tmpvalue = re.sub("\'\'+", "", tmpvalue)
-        tmpvalue = re.sub("\[\[", "", tmpvalue)
-        tmpvalue = re.sub("(\|[^\]]+)*\]\]", "", tmpvalue)
+        tmpvalue = re.sub("\[\[[^\]\|]+|", "", tmpvalue)
+        tmpvalue = re.sub("\]\]", "", tmpvalue)
         dic[tmpkey] = tmpvalue
 
 print(dic)
